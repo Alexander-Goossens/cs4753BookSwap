@@ -1,2 +1,2 @@
 # cs4753BookSwap
-Contributers: 
+*Contributers: Maddie Stigler, Toni Costanzo, Alexander Goossens*
