@@ -1,0 +1,27 @@
+<style>
+	html {
+	}
+	body{
+		width:100%;
+		height:100%;
+		margin:0;
+	}
+	#container{ 
+		position:relative;
+	}
+	#header{
+		padding:50px;
+		background:#000066;
+	}
+	#body{
+		padding-top:60px;
+		padding-bottom:60px;
+		background:#FFCC99;
+	}
+	#footer{
+		padding-top:20px;
+		padding-bottom:10px;
+		background:#000066;
+		border:1px solid black;
+	}
+</style>
