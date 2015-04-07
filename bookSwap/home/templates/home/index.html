@@ -1,11 +1,32 @@
-<html>	
-	<head>
-		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
-  		<title>BookSwap</title>
-	</head>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+    </head>
 
-	<body>
-		<h1> bookSwap </h1>
-		<p> To go to Login, click here: <a href="/home/login/">Login</a> </p>
-	</body>
+    <body>
+		<h1>Book Swap</h1>
+		
+		{% if user.is_authenticated %}
+		<h2>Welcome {{user.username}}</h2>
+		{% else %}
+		<h2>Welcome user</h2>
+		{% endif %}
+		
+		<p><b><u> Book Swap </b></u></p>
+		{% if user.is_authenticated %}
+		<p> <a href="/home/about/">About</a> </p> 
+		{% endif %}
+		
+		<hr>
+		<p><b><u> User account actions </b></u></p>
+		{% if user.is_authenticated %}
+		<p>  <a href="/home/logout/">Logout</a></p>
+		{% else %}
+		<p>  <a href="/home/login/">Login</a> </p>
+		<p>  <a href='/home/register/'>Register</a> </p>
+		<p> To go to the admin interface, click here <a href="/admin/">Admin Interface </a>. </p> 
+		{% endif %}
+
+    </body>
 </html>
