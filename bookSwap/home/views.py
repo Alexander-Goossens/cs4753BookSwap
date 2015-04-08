@@ -1,8 +1,18 @@
 from django.shortcuts import render
-from home.forms import UserForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, get_object_or_404
+from home.forms import UserForm
+from home.forms import BookForm
+from home.models import Book
+
+# Create your views here.
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.views.generic.edit import UpdateView, DeleteView
+
 def index(request):
 	return render(request, 'home/index.html')
 @login_required	
@@ -51,3 +61,40 @@ def register(request):
 def user_logout(request): 
     logout(request)
     return HttpResponseRedirect('/home/')
+
+def view_books(request):
+    books_list = Book.objects.filter(booker=request.user)
+    context = {'books_list': books_list}
+    return render(request, 'home/viewbooks.html', context)
+
+@login_required
+def view_book(request, book_name_url):
+    book = get_object_or_404(Book, id=book_name_url)
+    return render(request, 'home/viewbook.html', {'book': book})
+
+@login_required
+def edit_book(request, book_pk):
+    inst = get_object_or_404(Book, pk=book_pk)
+    rpk = book_pk
+    editing = True
+    book_form = BookForm(request.POST or None, instance=inst)
+    if book_form.is_valid():
+        book_form.save()
+        return HttpResponseRedirect('/home/viewbooks/')
+    return render(request, 'home/filebook.html', {'book_form': book_form, 'editing': editing, 'rpk': rpk})
+
+@login_required
+def file_book(request):
+    if request.method == 'POST':
+        book_form = BookForm(data=request.POST)
+
+        if book_form.is_valid():
+            book = book_form.save(commit=False)
+            book.booker = request.user
+            book.save()
+            return HttpResponseRedirect('/home/')
+
+    else:
+        book_form = BookForm()
+
+    return render(request, 'home/filebook.html', {'book_form': book_form})

@@ -8,4 +8,9 @@ urlpatterns = patterns('',
 	url(r'^register/$', views.register, name='register'),
 	url(r'^about/$', views.about, name='about'),
 	url(r'^logout/$', views.user_logout, name='logout'),
+    url(r'^filebook/$', views.file_book, name='file_book'),
+    url(r'^viewbooks/$', views.view_books, name='view_books'),
+    url(r'^viewbooks/(?P<book_name_url>\w+)/$', views.view_book, name='book_name_url'),
+    url(r'^editbook/(?P<book_id>\w+)/$', views.edit_book, name='book_name_url'),
+
 	)

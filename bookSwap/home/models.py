@@ -1,3 +1,30 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
+
 
 # Create your models here.
+class Book(models.Model):
+    #Title
+    title = models.CharField(max_length=50)
+    #Author
+    author = models.CharField(max_length=50)
+    #ISBN
+    isbn = models.CharField(max_length=50)
+    #Course
+    course = models.CharField(max_length=50)
+    #Professor
+    professor = models.CharField(max_length=50)
+    #Condition
+    condition = models.CharField(max_length=50)
+    #Price
+    price = models.CharField(max_length=50)
+
+    booker = models.ForeignKey(User, null=True)
+
+    
+    def __str__(self):
+        return self.short_description
+        
+    def get_absolute_url(self):
+        return reverse('book-detail', kwargs={'pk':self.pk})

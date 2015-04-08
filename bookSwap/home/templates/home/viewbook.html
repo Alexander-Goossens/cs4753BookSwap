@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>View Book</title>
+    </head>
+
+    <body>
+		<h1>View Book</h1>
+		
+		<p><b>Title: </b> {{ book.title }} </p>
+		<p><b>Author: </b> {{ book.author }} </p>
+		<p><b>Course: </b> {{ book.course }} </p>
+		<p><b>ISBN: </b> {{ book.isbn }} </p>
+		<p><b>Professor: </b> {{ book.professor }} </p>
+		<p><b>Condition: </b>{{ book.condition }}</p>
+		<p><b>Price: </b>{{ book.price }}</p>
+
+		<hr>
+		<p> To view all your books, click here: <a href='/home/viewbooks/'>View Books</a> </p>
+		<p> To file a new book, click here: <a href='/home/filebook/'>File Book</a> </p>
+		<p> To go to the home page, click here: <a href="/home/">Home</a> </p>
+
+    </body>
+</html>

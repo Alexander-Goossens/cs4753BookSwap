@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>View Books</title>
+    </head>
+
+    <body>
+		<h1>View Books</h1>
+		
+		{% if user.is_authenticated %}
+		<h2> {{user.username}}'s Books</h2>
+		{% else %}
+		<h2>No books</h2>
+		{% endif %}
+
+		{% if user.is_authenticated %}
+			<p>Here is a list of books you have filed:</p>
+			{% if books_list %}
+			<ul>
+			    {% for book in books_list %}
+			        <li><a href="/home/viewbooks/{{book.id}}/">{{book.title}}</a></li>
+			    {% endfor %}
+			</ul>
+			{% else %}
+				<p> No books are available </p>
+			{% endif %}
+		{% else %}
+			<p> You are not signed in </p>
+		{% endif %}
+		
+		<hr>
+		
+		<p> To file a new book, click here: <a href='/home/filebook/'>File Book</a> </p>
+		<p> To go to the home page, click here: <a href="/home/">Home</a> </p>
+
+    </body>
+</html>

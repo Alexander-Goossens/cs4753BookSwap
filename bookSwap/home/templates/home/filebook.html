@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>File Book</title>
+    </head>
+
+    <body>
+        <h1>Sell a Book with BookSwap</h1>
+
+		<form id= book_form" method="post" action="/home/filebook/"
+        enctype="multipart/form-data">
+
+            {% csrf_token %}
+
+            {{book_form.as_p }}
+
+            <input type="submit" name="submit" value="Book" />
+        </form>
+		<hr>
+        <p> To view all your books, click here: <a href='/home/viewbooks/'>View Books</a> </p>
+		<p> To go to the home page, click here: <a href="/home/">Home</a> </p>
+		
+    </body>
+</html>

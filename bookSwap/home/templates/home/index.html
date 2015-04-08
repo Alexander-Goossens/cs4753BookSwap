@@ -22,6 +22,8 @@
 		<p><b><u> User account actions </b></u></p>
 		{% if user.is_authenticated %}
 		<p>  <a href="/home/logout/">Logout</a></p>
+        <p>  <a href="/home/filebook/">Sell a Book</a></p>
+        <p>  <a href="/home/viewbooks/">View Your Books</a></p>
 		{% else %}
 		<p>  <a href="/home/login/">Login</a> </p>
 		<p>  <a href='/home/register/'>Register</a> </p>
