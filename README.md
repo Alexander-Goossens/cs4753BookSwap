@@ -5,4 +5,4 @@
  
  To log into the Django Admin interface -> User: Admin Pass: Admin
  
- To view part 3 of our business plan, look at ProjectPart3.pdf. 
+ To view part 3 of our business plan, look at ProjectPart3.pdf.  
