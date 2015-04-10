@@ -13,6 +13,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import UpdateView, DeleteView
 
+def homepage(request):
+	return render(request, 'home/homepage.html')
+
 def index(request):
 	return render(request, 'home/index.html')
 @login_required	
