@@ -70,6 +70,10 @@ def view_books(request):
     context = {'books_list': books_list}
     return render(request, 'home/viewbooks.html', context)
 
+def viewallbooks(request):
+    allbooks_list = Book.objects.all()
+    context = {'allbooks_list': allbooks_list}
+    return render(request, 'home/viewbooks.html', context)
 @login_required
 def view_book(request, book_name_url):
     book = get_object_or_404(Book, id=book_name_url)

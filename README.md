@@ -4,3 +4,5 @@
  The static homepage can be viewed locally by pulling the bookSwap file from this github. Then cd into the file so that you are in the same directory as manage.py. Once you are there, to run the server type "python manage.py runserver". 
  
  Please look at the ProjectPart2.pdf file for our updated Business Proposal.
+
+ To log into the Django Admin interface -> User: Admin Pass: Admin
