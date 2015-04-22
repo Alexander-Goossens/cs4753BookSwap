@@ -10,7 +10,7 @@
 		{% if user.is_authenticated %}
 		<h2>Welcome {{user.username}}</h2>
 		{% else %}
-		<h2>Welcome user</h2>
+		<h2>Welcome</h2>
 		{% endif %}
 		
 		<p><b><u> Book Swap </b></u></p>
@@ -24,15 +24,27 @@
 		<p>  <a href="/home/logout/">Logout</a></p>
         <p>  <a href="/home/filebook/">Sell a Book</a></p>
         <p>  <a href="/home/viewbooks/">View Your Books</a></p>
+
         <form class="navbar-form" method="GET" action="{% url 'search' %}">
                   <input class="form-control" type="text" placeholder="Search" name="q" />
                   <input class="btn btn-default" type="submit" />
                 </form>
+
+        <p>  <a href="/home/viewallbooks/">View All Books</a></p>
+        <p> To go to the admin interface, click here <a href="/admin/">Admin Interface </a>. </p
+
 		{% else %}
 		<p>  <a href="/home/login/">Login</a> </p>
 		<p>  <a href='/home/register/'>Register</a> </p>
+		<p>  <a href='/home/homepage/'>Home</a> </p>
 		<p> To go to the admin interface, click here <a href="/admin/">Admin Interface </a>. </p> 
 		{% endif %}
+
+
+
+
+
+
 
     </body>
 </html>

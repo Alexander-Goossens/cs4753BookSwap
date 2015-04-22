@@ -13,6 +13,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import UpdateView, DeleteView
 
+
 def search(request):
     query = request.GET.get('q')
     if query:
@@ -20,6 +21,10 @@ def search(request):
     else:
         results = Book.objects.all()
     return render(request, 'search_result.html', {'results':results})
+
+def homepage(request):
+	return render(request, 'home/homepage.html')
+
 
 def index(request):
 	return render(request, 'home/index.html')
@@ -75,6 +80,10 @@ def view_books(request):
     context = {'books_list': books_list}
     return render(request, 'home/viewbooks.html', context)
 
+def viewallbooks(request):
+    allbooks_list = Book.objects.all()
+    context = {'allbooks_list': allbooks_list}
+    return render(request, 'home/viewbooks.html', context)
 @login_required
 def view_book(request, book_name_url):
     book = get_object_or_404(Book, id=book_name_url)

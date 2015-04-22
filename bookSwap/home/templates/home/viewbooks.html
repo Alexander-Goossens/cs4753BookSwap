@@ -8,16 +8,23 @@
 		<h1>View Books</h1>
 		
 		{% if user.is_authenticated %}
-		<h2> {{user.username}}'s Books</h2>
+		<h2> Books</h2>
 		{% else %}
 		<h2>No books</h2>
-		{% endif %}
+		{% endif %} 
 
 		{% if user.is_authenticated %}
-			<p>Here is a list of books you have filed:</p>
+			
 			{% if books_list %}
 			<ul>
+				<p>Here is a list of {{user.username}}'s books:</p>
 			    {% for book in books_list %}
+			        <li><a href="/home/viewbooks/{{book.id}}/">{{book.title}}</a></li>
+			    {% endfor %}
+			</ul>
+			{% elif allbooks_list %}
+			<ul>
+			    {% for book in allbooks_list %}
 			        <li><a href="/home/viewbooks/{{book.id}}/">{{book.title}}</a></li>
 			    {% endfor %}
 			</ul>
