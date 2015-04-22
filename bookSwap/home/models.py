@@ -22,9 +22,8 @@ class Book(models.Model):
 
     booker = models.ForeignKey(User, null=True)
 
-    
     def __str__(self):
-        return self.short_description
+        return self.title+" "+self.author+" "+self.isbn+" "+self.course+" "+self.professor
         
     def get_absolute_url(self):
         return reverse('book-detail', kwargs={'pk':self.pk})

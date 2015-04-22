@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+ <h1>Search Results</h1>
+
+    <ul>
+    {% for book in results %}
+        <li>
+            <a href='/home/viewbooks/{{book.id}}/'>{{ book.title }}</a><br />
+        </li>
+    {% endfor %}
+    </ul>
+		
+		<p> To file a new book, click here: <a href='/home/filebook/'>File Book</a> </p>
+		<p> To go to the home page, click here: <a href="/home/">Home</a> </p>
+
+    </body>
+</html>

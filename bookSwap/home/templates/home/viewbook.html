@@ -19,6 +19,10 @@
 		<p> To view all your books, click here: <a href='/home/viewbooks/'>View Books</a> </p>
 		<p> To file a new book, click here: <a href='/home/filebook/'>File Book</a> </p>
 		<p> To go to the home page, click here: <a href="/home/">Home</a> </p>
+		<form class="navbar-form" method="GET" action="{% url 'search' %}">
+                  <input class="form-control" type="text" placeholder="Search" name="q" />
+                  <input class="btn btn-default" type="submit" />
+                </form>
 
     </body>
 </html>

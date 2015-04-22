@@ -6,12 +6,20 @@ from django.shortcuts import render, get_object_or_404
 from home.forms import UserForm
 from home.forms import BookForm
 from home.models import Book
-
+from django.db.models import Q
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import UpdateView, DeleteView
+
+def search(request):
+    query = request.GET.get('q')
+    if query:
+        results = Book.objects.filter(Q(title__icontains=query) | Q(author__icontains=query) | Q(isbn__icontains=query) | Q(course__icontains=query)).order_by('price')
+    else:
+        results = Book.objects.all()
+    return render(request, 'search_result.html', {'results':results})
 
 def index(request):
 	return render(request, 'home/index.html')
