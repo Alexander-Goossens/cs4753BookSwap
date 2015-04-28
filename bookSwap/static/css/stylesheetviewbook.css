@@ -10,18 +10,25 @@
 		position:relative;
 	}
 	#header{
-		padding:50px;
+		padding:45px;
 		background:#000066;
+		text-align:center;
 	}
 	#body{
-		padding-top:60px;
-		padding-bottom:60px;
+		padding-top:5%;
+		padding-bottom:7%;
 		background:#FFCC99;
 	}
 	#footer{
-		padding-top:20px;
-		padding-bottom:10px;
+		max-width:100%;
+		padding:5px;
+		height:15%;
 		background:#000066;
-		border:1px solid black;
+	}
+	#logo{
+		float:left;
+	}
+	#accountinfo{
+		float:right;
 	}
 </style>

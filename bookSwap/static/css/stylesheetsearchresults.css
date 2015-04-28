@@ -1,0 +1,34 @@
+<style>
+	html {
+	}
+	body{
+		width:100%;
+		height:100%;
+		margin:0;
+	}
+	#container{ 
+		position:relative;
+	}
+	#header{
+		padding:45px;
+		background:#000066;
+		text-align:center;
+	}
+	#body{
+		padding-top:100px;
+		padding-bottom:205px;
+		background:#FFCC99;
+	}
+	#footer{
+		max-width:100%;
+		padding:5px;
+		height:25%;
+		background:#000066;
+	}
+	#logo{
+		float:left;
+	}
+	#accountinfo{
+		float:right;
+	}
+</style>

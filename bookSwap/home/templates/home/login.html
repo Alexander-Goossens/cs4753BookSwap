@@ -1,23 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html>  
     <head>
-        <title>Home</title>
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/stylesheet.css" />
+        <title>BookSwap</title>
     </head>
 
     <body>
-        <h1>Login to Secure Witness</h1>
+        <div id="container">
+            <div id="header" align="center">
+                 <a href="/home/homepage/"><img style="display: inline" src="{{ STATIC_URL }}images/logo.png" height="42" width="300" ></img></a><br><br>
+           </div>
 
-        <form id="login_form" method="post" action="/home/login/">
-            {% csrf_token %}
-            Username: <input type="text" name="username" value="" size="50" />
-            <br />
-            Password: <input type="password" name="password" value="" size="50" />
-            <br />
+            <div id="body" align = "center" >
+                    <br>
+                    <h1> Please Login </h1>
+                    <form id="login_form" method="post" action="/home/login/">
+                    {% csrf_token %}
+                    Username: <input type="text" name="username" value="" size="50" />
+                    <br />
+                    Password: <input type="password" name="password" value="" size="50" />
+                    <br />
+                    <input type="submit" value="Login" />
+                    </form>
+                    
+                        <p> If you don't have an account, click here to register:<a href="/home/register/">Register</a> </p>
+            </div>
 
-            <input type="submit" value="submit" />
-        </form>
-
-		<p> Or return to the index page here: <a href='/home/'>Index</a> </p>
-
+            <div id="footer" align="center">
+                <div id="footerText" align = "center">
+                    <br>
+                    <a href="/home/homepage/"><font color="white"> BookSwap</font></a>
+                    <br>
+                    <font color="white"> Universtiy of Virginia </font> <br>
+                    <font color="white"> @Facebook @Twitter </font>
+                    <br><br>
+                </div> 
+            </div>
+        </div>
     </body>
 </html>

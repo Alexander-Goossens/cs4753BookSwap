@@ -1,0 +1,39 @@
+<style>
+	html {
+	}
+	body{
+		width:100%;
+		height:100%;
+		margin:0;
+		/*border:2px solid red;*/
+	}
+	#container{ 
+		position:relative;
+		/*border:2px solid black;*/
+	}
+	#header{
+		padding:45px;
+		background:#000066;
+		text-align:center;
+		/*vertical-align:top;*/
+	}
+	#body{
+		padding-top:10%;
+		padding-bottom:17%;
+		background:#FFCC99;
+	}
+	#footer{
+		/*position:absolute;*/
+		/*padding:11px;*/
+		max-width:100%;
+		padding:5px;
+		height:15%;
+		background:#000066;
+	}
+	#logo{
+		float:left;
+	}
+	#accountinfo{
+		float:right;
+	}
+</style>

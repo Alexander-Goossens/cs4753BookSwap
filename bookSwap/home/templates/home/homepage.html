@@ -1,39 +1,72 @@
+<!DOCTYPE html>
 <html>	
 	<head>
-		<link rel="stylesheet" type="text/css" href="/static/css/stylesheet.css" />
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/stylesheet.css" />
   		<title>BookSwap</title>
 	</head>
 
 	<body>
 		<div id="container">
 			<div id="header" align="center">
-				<div id="titleLogo" style="float: left">
-					<img style="display: inline" src="/static/images/logo.png" height="42" width="300" >
+				<div id="titleLogo">
+					<a href="/home/homepage/"><img style="display: inline" src="{{ STATIC_URL }}images/logo.png" height="42" width="300" ></img></a>
 				</div>
-				<div id="searchBar" style="float:right">
-					<a style="display:inline"href="index.html"> <font color="white"> Login/Signup </font></a>
+				<div id="search">
+					<br>					
+					<form class="navbar-form" method="GET" action="{% url 'search' %}">
+                  	<input class="form-control" type="text" placeholder="Search" name="q" />
+                	<input class="btn btn-default" type="submit" />
+                </form>
+				</div>
+				<div id="info" >
+					<br>
+					<div id="sell">
+						{% if user.is_authenticated %}
+						<a href="/home/filebook/"> <input type="button"value="Sell Book" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a>	
+						{% endif %}
+					</div>
+					<div id ="login">
+						{% if user.is_authenticated %}
+						<a href="/home/accountinfo/"> <input type="button"value="Account Info" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a>
+						{% else %}
+						<a href="/home/login/"> <input type="button"value="Login" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a>
+						{% endif %}
+					</div>
+					<div id="register">
+						{% if user.is_authenticated %}
+						<a href="/home/logout/"> <input type="button"value="Log Out" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a>
+						{% else %}
+						<a href="/home/register/"> <input type="button"value="Register" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a>
+						{% endif %}
+					</div>
+					<div id ="about">
+						<a href="/home/about/"> <input type="button"value="About" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a>	
+					</div>
+
 				</div>		
-		        <div id="login">
-  					<input type="text" placeholder="Search by Course/Professor/ISBN" required style="width:250px;" >
-		        </div>                        
+		        <div id="Signup" >
+					
+				</div>                   
 		   </div>
 
 			<div id="body" align = "center" >
-				<div id="firstIm" style="float: left">
-					<img src="step1.jpg" > 
+				<div id="firstIm" >
+					<img src="{{ STATIC_URL }}images/step1.jpg" > 
 				</div>
-				<div id="secondIm" style="float: right">
-					<img src="step3.jpg" >
+				<div id="secondIm">
+					<img src="{{ STATIC_URL }}images/step2.jpg" >
 					
 				</div>
 				<div id="thirdIm" >
-					<img src="step2.jpg" > 
+					<img src="{{ STATIC_URL }}images/step3.jpg" > 
 				</div>
 			</div>
 
 			<div id="footer" align="center">
 				<div id="footerText" align = "center">
-					<font color="white"> BookSwap </font> <br>
+					<br>
+					<a href="/home/homepage/"><font color="white"> BookSwap</font></a>
+					<br>
 					<font color="white"> Universtiy of Virginia </font> <br>
 					<font color="white"> @Facebook @Twitter </font>
 				</div> 

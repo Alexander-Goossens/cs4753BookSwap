@@ -1,12 +1,12 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.core.urlresolvers import reverse
 
 
 # Create your models here.
 class Book(models.Model):
     #Title
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=50, blank = False)
     #Author
     author = models.CharField(max_length=50)
     #ISBN

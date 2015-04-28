@@ -2,27 +2,54 @@
 <html>
     <head>
         <title>View Book</title>
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/stylesheetviewbook.css" />
     </head>
 
     <body>
-		<h1>View Book</h1>
-		
-		<p><b>Title: </b> {{ book.title }} </p>
-		<p><b>Author: </b> {{ book.author }} </p>
-		<p><b>Course: </b> {{ book.course }} </p>
-		<p><b>ISBN: </b> {{ book.isbn }} </p>
-		<p><b>Professor: </b> {{ book.professor }} </p>
-		<p><b>Condition: </b>{{ book.condition }}</p>
-		<p><b>Price: </b>{{ book.price }}</p>
+    	<div id="container">
+            <div id="header" align="center">
+            	<div id="logo">
+            		<a href="/home/homepage/"><img style="display: inline" src="{{ STATIC_URL }}images/logo.png" height="42" width="300" ></img></a>
+            	</div>
+                <div id="accountinfo">
+                	<br>
+                	<a href="/home/filebook/"> <input type="button"value="Sell Book" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a>
+                	<a href="/home/accountinfo/"> <input type="button"value="Account Info" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a>
+                </div>
+                <br>
+           </div>
 
-		<hr>
-		<p> To view all your books, click here: <a href='/home/viewbooks/'>View Books</a> </p>
-		<p> To file a new book, click here: <a href='/home/filebook/'>File Book</a> </p>
-		<p> To go to the home page, click here: <a href="/home/">Home</a> </p>
-		<form class="navbar-form" method="GET" action="{% url 'search' %}">
-                  <input class="form-control" type="text" placeholder="Search" name="q" />
-                  <input class="btn btn-default" type="submit" />
+            <div id="body" align = "center" >
+
+               <h1>View Book</h1>
+				
+				<p><b>Title: </b> {{ book.title }} </p>
+				<p><b>Author: </b> {{ book.author }} </p>
+				<p><b>Course: </b> {{ book.course }} </p>
+				<p><b>ISBN: </b> {{ book.isbn }} </p>
+				<p><b>Professor: </b> {{ book.professor }} </p>
+				<p><b>Condition: </b>{{ book.condition }}</p>
+				<p><b>Price: </b>{{ book.price }}</p>
+				<p> To view all your books, click here: <a href='/home/viewbooks/'>View Books</a> </p>
+				
+				
+				<form class="navbar-form" method="GET" action="{% url 'search' %}">
+		                  <input class="form-control" type="text" placeholder="Search" name="q" />
+		                  <input class="btn btn-default" type="submit" />
                 </form>
+				
+		    </div>
 
+            <div id="footer" align="center">
+                <div id="footerText" align = "center">
+                    <br>
+                    <a href="/home/homepage/"><font color="white"> BookSwap</font></a>
+                    <br>
+                    <font color="white"> Universtiy of Virginia </font> <br>
+                    <font color="white"> @Facebook @Twitter </font>
+                    <br><br>
+                </div> 
+            </div>
+        </div>
     </body>
 </html>

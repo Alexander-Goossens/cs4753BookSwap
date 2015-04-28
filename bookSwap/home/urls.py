@@ -14,8 +14,7 @@ urlpatterns = patterns('',
     url(r'^viewbooks/(?P<book_name_url>\w+)/$', views.view_book, name='book_name_url'),
     url(r'^editbook/(?P<book_id>\w+)/$', views.edit_book, name='book_name_url'),
 	url(r'^search/$', views.search, name='search'),
-
-
+    url(r'^accountinfo/$', views.accountinfo, name='accountinfo'), 
     url(r'^homepage/$', views.homepage, name='homepage'),
 
 	)

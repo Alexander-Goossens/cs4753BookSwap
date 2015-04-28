@@ -1,17 +1,56 @@
 <!DOCTYPE html>
 <html>
- <h1>Search Results</h1>
+    <head>
+         <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/stylesheetsearchresults.css" />
+        <title>About</title>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header" align="center">
+                <div id="logo">
+                    <a href="/home/homepage/"><img style="display: inline" src="{{ STATIC_URL }}images/logo.png" height="42" width="300" ></img></a>
+                </div>
+                <div id="accountinfo">
+                    {% if user.is_authenticated %}<br>
+                    <a href="/home/viewbooks/"> <input type="button"value="View Books" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a> 
+                    <a href="/home/filebook/"> <input type="button"value="Sell Book" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a>
+                    <a href="/home/accountinfo/"> <input type="button"value="Account Info" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a>
+                    {% else %}<br>
+                    <a href="/home/login/"> <input type="button"value="Login" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a> &nbsp &nbsp
+                    <a href="/home/register/"> <input type="button"value="Register"style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a>
+                    {% endif %}
+                </div>
+                <br>
+           </div>
 
-    <ul>
-    {% for book in results %}
-        <li>
-            <a href='/home/viewbooks/{{book.id}}/'>{{ book.title }}</a><br />
-        </li>
-    {% endfor %}
-    </ul>
-		
-		<p> To file a new book, click here: <a href='/home/filebook/'>File Book</a> </p>
-		<p> To go to the home page, click here: <a href="/home/">Home</a> </p>
+            <div id="body" align = "center" >
+                        <br><br>
+                        {% if user.is_authenticated %}
+                         <h1>Search Results</h1>
 
+                            <ul>
+                            {% for book in results %}
+                                <li>
+                                    <a href='/home/viewbooks/{{book.id}}/'>{{ book.title }}</a><br />
+                                </li>
+                            {% endfor %}
+                            </ul>
+                         {% else %}
+                          <meta http-equiv="refresh" content="0; url=/home/login/" />
+                         {% endif %} <br><br><br><br>
+            </div>
+
+            <div id="footer" align="center">
+                <div id="footerText" align = "center">
+                    <br>
+                    <a href="/home/homepage/"><font color="white"> BookSwap</font></a>
+                    <br>
+                    <font color="white"> Universtiy of Virginia </font> <br>
+                    <font color="white"> @Facebook @Twitter </font>
+                    <br><br>
+                </div> 
+            </div>
+        </div>
+        
     </body>
 </html>

@@ -2,23 +2,53 @@
 <html>
     <head>
         <title>File Book</title>
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/stylesheetsellbook.css" />
     </head>
 
     <body>
-        <h1>Sell a Book with BookSwap</h1>
+         <div id="container">
+            <div id="header" align="center">
+                <div id="logo">
+                    <a href="/home/homepage/"><img style="display: inline" src="{{ STATIC_URL }}images/logo.png" height="42" width="300" ></img></a>
+                </div>
+                <div id="accountinfo">
+                    {% if user.is_authenticated %}<br>
+                   
+                    <a href="/home/viewbooks/"> <input type="button"value="View Books" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a> &nbsp &nbsp
+                    <a href="/home/accountinfo/"> <input type="button"value="Account Info" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a>
+                    {% else %}<br>
+                    <a href="/home/login/"> <input type="button"value="Login" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a> &nbsp &nbsp
+                    <a href="/home/register/"> <input type="button"value="Register"style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a>
+                    {% endif %}
+                </div>
+                <br>
+           </div>
 
-		<form id= book_form" method="post" action="/home/filebook/"
+            <div id="body" align = "center" >
+
+                <h1>Sell a Book with BookSwap</h1>
+
+        <form id= book_form" method="post" action="/home/filebook/"
         enctype="multipart/form-data">
-
             {% csrf_token %}
-
             {{book_form.as_p }}
-
             <input type="submit" name="submit" value="Book" />
         </form>
-		<hr>
-        <p> To view all your books, click here: <a href='/home/viewbooks/'>View Books</a> </p>
-		<p> To go to the home page, click here: <a href="/home/">Home</a> </p>
+      
+            </div>
+
+            <div id="footer" align="center">
+                <div id="footerText" align = "center">
+                    <br>
+                    <a href="/home/homepage/"><font color="white"> BookSwap</font></a>
+                    <br>
+                    <font color="white"> Universtiy of Virginia </font> <br>
+                    <font color="white"> @Facebook @Twitter </font>
+                    <br><br>
+                </div> 
+            </div>
+        </div>
+
 		
     </body>
 </html>

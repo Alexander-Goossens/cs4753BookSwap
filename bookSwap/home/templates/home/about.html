@@ -1,15 +1,46 @@
 <!DOCTYPE html>
 <html>
+	<!DOCTYPE html>
+<html>
     <head>
+         <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/stylesheetabout.css" />
         <title>About</title>
     </head>
 
     <body>
-		<h1> About </h1>
-		<p> Welcome to the Book Swap about page</p>
-		<p>UVA students are constantly faced with the struggle of exchanging class materials with each other efficiently and inexpensively. While there are several Facebook groups such as Student to Student Textbooks and Textbook Exchange that allow students to exchange materials, many of these groups are deeply flawed. Due to the chronological nature of Facebook, a large amount of posts within the groups are lost and never received by students. Book Swap is a website specific to UVA students, that solves this problem. We offer students a platform where they can exchange books in one place without having to scroll through endless amounts of posts and find these books at an <strong>affordable</strong> price. </p>
-		<hr>
-		<p> <a href="/home/">Home</a> </p>
+         <div id="container">
+            <div id="header" align="center">
+            	<div id="logo">
+            		<a href="/home/homepage/"><img style="display: inline" src="{{ STATIC_URL }}images/logo.png" height="42" width="300" ></img></a>
+            	</div>
+                <div id="accountinfo">
+                	{% if user.is_authenticated %}<br>
+                	<a href="/home/accountinfo/"> <input type="button"value="Account Info" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a>
+                	{% else %}<br>
+                	<a href="/home/login/"> <input type="button"value="Login" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a> &nbsp &nbsp
+					<a href="/home/register/"> <input type="button"value="Register"style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a>
+                	{% endif %}
+                </div>
+                <br>
+           </div>
 
+            <div id="body" align = "center" >
+
+                <h1> Some Background  </h1>
+				<br><br><br>
+				<p>UVA students are constantly faced with the struggle of exchanging class materials with each other efficiently and inexpensively. While there are several Facebook groups such as Student to Student Textbooks and Textbook Exchange that allow students to exchange materials, many of these groups are deeply flawed. Due to the chronological nature of Facebook, a large amount of posts within the groups are lost and never received by students. Book Swap is a website specific to UVA students, that solves this problem. We offer students a platform where they can exchange books in one place without having to scroll through endless amounts of posts and find these books at an <strong>affordable</strong> price. </p>
+		    </div>
+
+            <div id="footer" align="center">
+                <div id="footerText" align = "center">
+                    <br>
+                    <a href="/home/homepage/"><font color="white"> BookSwap</font></a>
+                    <br>
+                    <font color="white"> Universtiy of Virginia </font> <br>
+                    <font color="white"> @Facebook @Twitter </font>
+                    <br><br>
+                </div> 
+            </div>
+        </div>
     </body>
 </html>

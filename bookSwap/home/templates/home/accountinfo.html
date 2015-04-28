@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Account Info</title>
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/stylesheetaccountinfo.css" />
+    </head>
+
+    <body>
+    	  <div id="container">
+            <div id="header" align="center">
+            	<div id="logo">
+            		<a href="/home/homepage/"><img style="display: inline" src="{{ STATIC_URL }}images/logo.png" height="42" width="300" ></img></a>
+            	</div>
+                <div id="accountinfo">
+                	<br>
+                	<a href="/home/filebook/"> <input type="button"value="Sell Book" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a> &nbsp &nbsp
+                	<a href="/home/logout/"> <input type="button"value="Log Out" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a>
+
+                </div>
+                <br>
+           </div>
+
+            <div id="body" align = "center" >
+				<h1> Account Info </h1>
+				<p> Your account details are as follows: </p>
+
+				<p><u> Username:</u> {{user.username}} </p>
+				<p><u> Email:</u> {{user.email}} </p>
+				<p><u> Member Since:</u> {{user.date_joined}} </p>
+				<p><u> Last Login:</u> {{user.last_login}} </p>
+				<p>  <a href="/home/viewbooks/">View Your Books</a></p>
+		    </div>
+
+            <div id="footer" align="center">
+                <div id="footerText" align = "center">
+                    <br>
+                    <a href="/home/homepage/"><font color="white"> BookSwap</font></a>
+                    <br>
+                    <font color="white"> Universtiy of Virginia </font> <br>
+                    <font color="white"> @Facebook @Twitter </font>
+                    <br><br>
+                </div> 
+            </div>
+        </div>	
+		<!-- <p> If you'd like to change your account password, click here <a href="/home/changepass/">Change Password</a></p> -->
+		<!-- <p> To log out, click here <a href="/home/logout/">Log out</a></p> -->
+    </body>
+</html>

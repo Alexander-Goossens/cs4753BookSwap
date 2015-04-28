@@ -1,31 +1,46 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/stylesheetregister.css" />
         <title>Register</title>
     </head>
 
     <body>
-        <h1>Register with Secure Witness</h1>
+         <div id="container">
+            <div id="header" align="center">
+                 <a href="/home/homepage/"><img style="display: inline" src="{{ STATIC_URL }}images/logo.png" height="42" width="300" ></img></a>
+           </div>
 
-        {% if registered %}
-        Home says: <strong>thank you for registering!</strong>
-        <a href="/home/">Return to the homepage.</a><br />
-        {% else %}
-        Home says: <strong>register here!</strong><br />
+            <div id="body" align = "center" >
 
-        <form id="user_form" method="post" action="/home/register/"
-                enctype="multipart/form-data">
+                <h1>Register with BookSwap</h1>
 
-            {% csrf_token %}
+                {% if registered %}
+                <strong>Thank you for registering!</strong>
+                <a href="/home/">Return to the homepage.</a><br />
+                {% else %}
+                Home says: <strong>register here!</strong><br />
 
-            {{ user_form.as_p }}
+                <form id="user_form" method="post" action="/home/register/"
+                        enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ user_form.as_p }}
 
+                    <input type="submit" name="submit" value="Register" />
+                </form>
+                {% endif %}
+            </div>
 
-            <input type="submit" name="submit" value="Register" />
-        </form>
-        {% endif %}
-		
-		<p> Or return to the index page here: <a href='/home/'>Index</a> </p>
-		
+            <div id="footer" align="center">
+                <div id="footerText" align = "center">
+                    <br>
+                    <a href="/home/homepage/"><font color="white"> BookSwap</font></a>
+                    <br>
+                    <font color="white"> Universtiy of Virginia </font> <br>
+                    <font color="white"> @Facebook @Twitter </font>
+                    <br><br>
+                </div> 
+            </div>
+        </div>
     </body>
 </html>

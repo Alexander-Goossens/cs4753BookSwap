@@ -25,10 +25,12 @@ def search(request):
 def homepage(request):
 	return render(request, 'home/homepage.html')
 
+def accountinfo(request):
+    return render(request, 'home/accountinfo.html')
 
 def index(request):
-	return render(request, 'home/index.html')
-@login_required	
+	return render(request, 'home/homepage.html')
+
 def about(request):
     return render(request, 'home/about.html')
 
@@ -42,7 +44,7 @@ def user_login(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect('/home/')
+                return HttpResponseRedirect('/home/homepage/')
             else:
                 return HttpResponse("Your account is disabled!")
         else:
@@ -61,6 +63,8 @@ def register(request):
 		if user_form.is_valid():
 			user = user_form.save()
 			user.set_password(user.password)
+
+            # username = user.username
 			user.save()
 			registered = True
 		else:
@@ -73,7 +77,7 @@ def register(request):
 @login_required
 def user_logout(request): 
     logout(request)
-    return HttpResponseRedirect('/home/')
+    return HttpResponseRedirect('/home/homepage/')
 
 def view_books(request):
     books_list = Book.objects.filter(booker=request.user)
@@ -109,7 +113,7 @@ def file_book(request):
             book = book_form.save(commit=False)
             book.booker = request.user
             book.save()
-            return HttpResponseRedirect('/home/')
+            return HttpResponseRedirect('/home/homepage/')
 
     else:
         book_form = BookForm()
