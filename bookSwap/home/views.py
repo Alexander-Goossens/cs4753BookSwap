@@ -99,11 +99,22 @@ def edit_book(request, book_pk):
     rpk = book_pk
     editing = True
     book_form = BookForm(request.POST or None, instance=inst)
-    if book_form.is_valid():
-        book_form.save()
-        return HttpResponseRedirect('/home/viewbooks/')
+    if request.user != Book.objects.filter(id=book_pk)[0].booker:
+        if book_form.is_valid():
+            book = book_form
+            book.save()
+            return HttpResponseRedirect('/home/viewbooks/')
+        return HttpResponseRedirect('/home/viewallbooks')
     return render(request, 'home/filebook.html', {'book_form': book_form, 'editing': editing, 'rpk': rpk})
-
+@login_required
+def delete_book(request, book_id):
+    temp = Book.objects.filter(id=book_id)[0].booker
+    if request.user == temp:
+        bk = get_object_or_404(Book, id=book_id)
+        bk.delete()
+        return HttpResponseRedirect('/home/viewbooks/')
+    else: 
+        return HttpResponseRedirect('/home/viewallbooks')
 @login_required
 def file_book(request):
     if request.method == 'POST':

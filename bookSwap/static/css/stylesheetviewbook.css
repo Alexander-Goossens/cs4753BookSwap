@@ -10,19 +10,19 @@
 		position:relative;
 	}
 	#header{
-		padding:45px;
+		padding:35px;
 		background:#000066;
 		text-align:center;
 	}
 	#body{
-		padding-top:5%;
-		padding-bottom:7%;
+		padding-top:1%;
+		padding-bottom:4%;
 		background:#FFCC99;
 	}
 	#footer{
 		max-width:100%;
-		padding:5px;
-		height:15%;
+		padding:2.5px;
+		height:12%;
 		background:#000066;
 	}
 	#logo{

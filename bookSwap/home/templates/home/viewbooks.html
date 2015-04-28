@@ -41,11 +41,11 @@
 					{% elif allbooks_list %}
 					<ul>
 					    {% for book in allbooks_list %}
-					        <a href="/home/viewbooks/{{book.id}}/">{{book.title}}</a>
+					        <li><a href="/home/viewbooks/{{book.id}}/">{{book.title}}</a></li>
 					    {% endfor %}
 					</ul>
 					{% else %}
-						<p> No books are available </p>
+						<p> &nbsp &nbsp &nbsp &nbsp No books are available </p>
 					{% endif %}
 				{% else %}
 					<p> You are not signed in </p>

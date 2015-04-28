@@ -14,7 +14,7 @@
                 <div id="accountinfo">
                     {% if user.is_authenticated %}<br>
                    
-                    <a href="/home/viewbooks/"> <input type="button"value="View Books" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a> &nbsp &nbsp
+                    <a href="/home/viewallbooks/"> <input type="button"value="View Books" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a> &nbsp &nbsp
                     <a href="/home/accountinfo/"> <input type="button"value="Account Info" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a>
                     {% else %}<br>
                     <a href="/home/login/"> <input type="button"value="Login" style="color: #000066; padding: 5px;  font-size: 18px; letter-spacing: 2px;" /></a> &nbsp &nbsp
@@ -25,27 +25,32 @@
            </div>
 
             <div id="body" align = "center" >
+                {% if editing %}
+                    <form id="book_form" method="post" action="/home/editbook/{{rpk}}/"
+                    enctype="multipart/form-data">
 
-                <h1>Sell a Book with BookSwap</h1>
+                 {% else %}    
+                        <h1>Sell a Book with BookSwap</h1>
 
-        <form id= book_form" method="post" action="/home/filebook/"
-        enctype="multipart/form-data">
-            {% csrf_token %}
-            {{book_form.as_p }}
-            <input type="submit" name="submit" value="Book" />
-        </form>
-      
+                <form id= "book_form" method="post" action="/home/filebook/"
+                enctype="multipart/form-data">
+                    
+                {% endif %}
+                     {% csrf_token %}
+                    {{book_form.as_p }}
+                    <input type="submit" name="submit" value="Book" />
+                </form>
             </div>
 
             <div id="footer" align="center">
-                <div id="footerText" align = "center">
-                    <br>
-                    <a href="/home/homepage/"><font color="white"> BookSwap</font></a>
-                    <br>
-                    <font color="white"> Universtiy of Virginia </font> <br>
-                    <font color="white"> @Facebook @Twitter </font>
-                    <br><br>
-                </div> 
+                        <div id="footerText" align = "center">
+                            <br>
+                            <a href="/home/homepage/"><font color="white"> BookSwap</font></a>
+                            <br>
+                            <font color="white"> Universtiy of Virginia </font> <br>
+                            <font color="white"> @Facebook @Twitter </font>
+                            <br><br>
+                        </div> 
             </div>
         </div>
 

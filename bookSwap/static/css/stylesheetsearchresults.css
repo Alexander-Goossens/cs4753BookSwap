@@ -31,4 +31,8 @@
 	#accountinfo{
 		float:right;
 	}
+	ul
+	{
+    list-style-type: none;
+	}
 </style>

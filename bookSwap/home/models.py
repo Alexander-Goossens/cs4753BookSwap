@@ -27,3 +27,6 @@ class Book(models.Model):
         
     def get_absolute_url(self):
         return reverse('book-detail', kwargs={'pk':self.pk})
+    def to_dict(self):
+        return {'id': self.id}
+

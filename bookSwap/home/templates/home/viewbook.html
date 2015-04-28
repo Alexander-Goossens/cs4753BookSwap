@@ -21,7 +21,7 @@
 
             <div id="body" align = "center" >
 
-               <h1>View Book</h1>
+               <h1>Book Info</h1>
 				
 				<p><b>Title: </b> {{ book.title }} </p>
 				<p><b>Author: </b> {{ book.author }} </p>
@@ -30,13 +30,11 @@
 				<p><b>Professor: </b> {{ book.professor }} </p>
 				<p><b>Condition: </b>{{ book.condition }}</p>
 				<p><b>Price: </b>{{ book.price }}</p>
-				<p> To view all your books, click here: <a href='/home/viewbooks/'>View Books</a> </p>
+				<p> To view all books, click here: <a href='/home/viewallbooks/'>View Books</a> </p>
+                <p> The following will only work for book forms that belong to you: </p>
+				<p> To edit this book form, click here: <a href='/home/editbook/{{book.pk}}'>Edit Book Form</a> </p>
+				<p> To delete this report, click here: <a href='/home/deletebook/{{book.id}}'>Delete Book</a> </p>
 				
-				
-				<form class="navbar-form" method="GET" action="{% url 'search' %}">
-		                  <input class="form-control" type="text" placeholder="Search" name="q" />
-		                  <input class="btn btn-default" type="submit" />
-                </form>
 				
 		    </div>
 

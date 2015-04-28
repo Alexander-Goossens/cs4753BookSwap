@@ -19,7 +19,7 @@
 	}
 	#body{
 		padding-top:10%;
-		padding-bottom:17%;
+		padding-bottom:20%;
 		background:#FFCC99;
 	}
 	#footer{
@@ -35,5 +35,9 @@
 	}
 	#accountinfo{
 		float:right;
+	}
+	ul
+	{
+    list-style-type: none;
 	}
 </style>
